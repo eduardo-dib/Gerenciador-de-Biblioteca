@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class App {
@@ -12,6 +13,8 @@ public class App {
         biblioteca.adicionarLivro(livro2);
         biblioteca.adicionarLivro(livro3);
         System.out.println(biblioteca.buscarLivroCategoria("samba "));
+        Usuario usuario1 = new Usuario("Nome do cabra", "41995400686", "Wet Sand", "Alguma coisa ai @gmail", new ArrayList<>());
+        System.out.println(usuario1);
 
 
     }
