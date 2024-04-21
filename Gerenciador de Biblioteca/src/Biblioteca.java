@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Biblioteca {
    
@@ -23,6 +24,28 @@ public class Biblioteca {
         filter(l -> l.getCod() == cod).
         findFirst().
         orElse(null);
+    }
+
+    public Livros buscarLivroTitulo(String titulo){
+        String tituloFormatado = titulo.trim().toLowerCase();
+        return livros.stream().
+        filter(l -> l.getNome().trim().toLowerCase().equals(tituloFormatado)).
+        findFirst().
+        orElse(null);
+    }
+
+    public List<Livros> buscarLivroAutor(String autor){
+        String autorFormatado = autor.trim().toLowerCase();
+        return livros.stream()
+        .filter(l -> l.getAutor().trim().toLowerCase().equals(autorFormatado))
+        .collect(Collectors.toList());
+    }
+
+    public List<Livros> buscarLivroCategoria(String categoria){
+        String categoriaFormatada = categoria.trim().toLowerCase();
+        return livros.stream()
+        .filter(l -> l.getCategoria().trim().toLowerCase().equals(categoriaFormatada))
+        .collect(Collectors.toList());
     }
     private int criarCodigo(){
         int res = 0;

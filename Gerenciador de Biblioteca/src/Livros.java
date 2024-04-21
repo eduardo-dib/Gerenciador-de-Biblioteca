@@ -1,25 +1,37 @@
 public class Livros {
-    private String nome, autor;
+    private String nome, autor, categoria;
+   
     private int anoPub;
     private int exemDisponiveis;
     private int cod;
     
    
 
-    public Livros(String nome, String autor, int anoPub, int exemDisponiveis) {
+    public Livros(String nome, String autor, int anoPub, String categoria, int exemDisponiveis) {
         this.nome = nome;
         this.autor = autor;
         this.anoPub = anoPub;
         this.exemDisponiveis = exemDisponiveis;
+        this.categoria = categoria;
     }
 
     public String getNome() {
         return nome;
     }
+    
 
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
 
     public String getAutor() {
         return autor;
