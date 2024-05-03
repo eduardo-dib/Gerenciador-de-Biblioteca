@@ -35,7 +35,7 @@ public class LivroDigital extends Livro{
 
     @Override
     public String toString() {
-        return "LivroDigital [titulo=" + super.getAutor() + ", autor=" + super.getAutor() + ", anoPub="
-                + super.getAnoPub() + ", exemDisp=" + super.getExemDisp() + "arqFormato=" + arqFormato +"]";
+        return "LivroFisico [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
+            + ", exemDisp=" + super.getExemDisp() + ", numPag=" + arqFormato + "]";
     }
 }
