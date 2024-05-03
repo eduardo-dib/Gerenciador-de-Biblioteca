@@ -1,6 +1,6 @@
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import Controllers.ControladorLivro;
+
 
 
 
@@ -13,6 +13,13 @@ import java.util.LinkedList;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Gerenciamento de Biblioteca");
+
+        ControladorLivro controladorLivro = new ControladorLivro();
+        
+
+
+
+
 
     }
 }

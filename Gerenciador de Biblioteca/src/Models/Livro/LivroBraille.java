@@ -1,12 +1,11 @@
 package Models.Livro;
 
-import java.time.LocalDate;
 
 public class LivroBraille extends Livro{
     private String material;
 
-    public LivroBraille(String titulo, String autor, LocalDate anoPub, int exemDisp, String material) {
-        super(titulo, autor, anoPub, exemDisp);
+    public LivroBraille(String titulo, String categoria, String autor, int anoPub, int exemDisp, String material) {
+        super(titulo, categoria, autor, anoPub, exemDisp);
         this.material = material;
     }
 
@@ -34,7 +33,7 @@ public class LivroBraille extends Livro{
 
     @Override
     public String toString() {
-        return "LivroFisico [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
-            + ", exemDisp=" + super.getExemDisp() + ", numPag=" + material + "]";
+        return "LivroBraille [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", categoria=" + super.getCategoria() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
+            + ", exemDisp=" + super.getExemDisp() + ", material=" + material + "]";
     }
 }

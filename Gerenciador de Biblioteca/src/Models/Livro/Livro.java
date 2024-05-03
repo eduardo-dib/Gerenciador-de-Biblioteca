@@ -1,18 +1,22 @@
 package Models.Livro;
 
-import java.time.LocalDate;
+
 
 public abstract class Livro implements Comparable <Livro>{
     protected static int proximoCodigo = 1;
     protected int cod;
     protected String titulo;
+    protected String categoria;
+    
+
     protected String autor;
-    protected LocalDate anoPub;
+    protected int anoPub;
     protected int exemDisp;
     
-    public Livro(String titulo, String autor, LocalDate anoPub, int exemDisp) {
+    public Livro(String titulo, String categoria, String autor, int anoPub, int exemDisp) {
         this.cod = proximoCodigo++;
         this.titulo = titulo;
+        this.categoria = categoria;
         this.autor = autor;
         this.anoPub = anoPub;
         this.exemDisp = exemDisp;
@@ -38,11 +42,11 @@ public abstract class Livro implements Comparable <Livro>{
         this.autor = autor;
     }
 
-    public LocalDate getAnoPub() {
+    public int getAnoPub() {
         return anoPub;
     }
 
-    public void setAnoPub(LocalDate anoPub) {
+    public void setAnoPub(int anoPub) {
         this.anoPub = anoPub;
     }
 
@@ -61,9 +65,17 @@ public abstract class Livro implements Comparable <Livro>{
         this.cod = cod;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
-        return "Livro [titulo=" + titulo + ", autor=" + autor + ", anoPub=" + anoPub + ", exemDisp=" + exemDisp + ",cod=" + cod +"]";
+        return "Livro [titulo=" + titulo + ", categoria=" + categoria + ", autor=" + autor + ", anoPub=" + anoPub + ", exemDisp=" + exemDisp + ",cod=" + cod +"]";
     }
 
     @Override

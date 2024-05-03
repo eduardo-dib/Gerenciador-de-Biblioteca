@@ -1,12 +1,11 @@
 package Models.Livro;
 
-import java.time.LocalDate;
 
 public class LivroFisico extends Livro {
     private int numPag;
 
-    public LivroFisico(String titulo, String autor, LocalDate anoPub, int exemDisp, int numPag) {
-        super(titulo, autor, anoPub, exemDisp);
+    public LivroFisico(String titulo,String categoria, String autor, int anoPub, int exemDisp, int numPag) {
+        super(titulo, categoria, autor, anoPub, exemDisp);
         this.numPag = numPag;
     }
 
@@ -35,8 +34,8 @@ public class LivroFisico extends Livro {
 
     @Override
     public String toString() {
-        return "LivroFisico [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
-            + ", exemDisp=" + super.getExemDisp() + ", numPag=" + numPag + "]";
+        return "LivroFisico [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", categoria=" + super.getCategoria() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
+            + ", exemDisp=" + super.getExemDisp() + ", Número de páginas=" + numPag + "]";
     }
 
 }

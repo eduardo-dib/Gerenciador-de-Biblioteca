@@ -1,12 +1,11 @@
 package Models.Livro;
 
-import java.time.LocalDate;
 
 public class LivroDigital extends Livro{
     private String arqFormato;
 
-    public LivroDigital(String titulo, String autor, LocalDate anoPub, int exemDisp, String arqFormato) {
-        super(titulo, autor, anoPub, exemDisp);
+    public LivroDigital(String titulo, String categoria, String autor, int anoPub, int exemDisp, String arqFormato) {
+        super(titulo, categoria, autor, anoPub, exemDisp);
         this.arqFormato = arqFormato;
     }
 
@@ -35,7 +34,7 @@ public class LivroDigital extends Livro{
 
     @Override
     public String toString() {
-        return "LivroFisico [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
-            + ", exemDisp=" + super.getExemDisp() + ", numPag=" + arqFormato + "]";
+        return "LivroDigital [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", categoria=" + super.getCategoria() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
+            + ", exemDisp=" + super.getExemDisp() + ", Formato do Arquivo=" + arqFormato + "]";
     }
 }
