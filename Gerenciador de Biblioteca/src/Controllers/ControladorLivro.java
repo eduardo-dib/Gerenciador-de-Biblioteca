@@ -14,9 +14,6 @@ public class ControladorLivro{
         this.livros = new LinkedList<>();
     }
 
-    public void cadastrarLivro(){
-
-    }
 
     public Livro buscarLivroCod(int cod) throws Exception{
         Livro livroEncontrado = livros.stream().

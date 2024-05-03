@@ -1,7 +1,14 @@
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Controllers.ControladorLivro;
+import Controllers.ControladorUsuario;
 import Models.Livro.LivroBraille;
 import Models.Livro.LivroDigital;
+import Models.Livro.LivroFisico;
+import Models.Livro.Livro;
+import Models.*;
 
 //Ver estrutura do projeto(Herança-Usuario, UsuarioComum e UsuarioPremium, Interface-ILivro, LivroComum e LivroPremium)
 //Como funcionaria a interface Ilivros? sendo que todos os métodos de adicionar, remover livros ficariam na biblioteca
@@ -12,14 +19,11 @@ public class App {
         System.out.println("Gerenciamento de Biblioteca");
 
         ControladorLivro controladorLivro = new ControladorLivro();
-        LivroBraille livro1 = new LivroBraille("Teste", "Teste", "Teste", 2023, 5, "Papel");
-        LivroBraille livro2 = new LivroBraille("Teste2", "Teste", "Teste", 2023, 5, "Papel");
-        LivroDigital livro3 = new LivroDigital("Oi", "nsei", "Teste", 0, 0, "Sim");
-        controladorLivro.adicionarLivro(livro1);
-        controladorLivro.adicionarLivro(livro2);
-        controladorLivro.adicionarLivro(livro3);
-        System.out.println(controladorLivro.buscarLivrosCategoria("Teste"));
-        System.out.println(controladorLivro.buscarLivrosCategoria("nsei"));
+        ControladorUsuario controladorUsuario = new ControladorUsuario();
+        Usuario user1 = new Usuario("Sim", "Sim", "Sim", "Sim", new ArrayList<Livro>());
+        Usuario user2 = new Usuario("Sim", "Sim", "Sim", "Sim", new ArrayList<Livro>());
+        controladorUsuario.adicionarUsuario(user1);
+        System.out.println(user1);
 
     }
 }
