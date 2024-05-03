@@ -34,7 +34,7 @@ public class LivroFisico extends Livro {
 
     @Override
     public String toString() {
-        return "LivroFisico [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", categoria=" + super.getCategoria() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
+        return "\nLivroFisico [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", categoria=" + super.getCategoria() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
             + ", exemDisp=" + super.getExemDisp() + ", Número de páginas=" + numPag + "]";
     }
 

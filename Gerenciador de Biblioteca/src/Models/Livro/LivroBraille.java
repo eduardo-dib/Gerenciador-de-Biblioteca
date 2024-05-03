@@ -33,7 +33,7 @@ public class LivroBraille extends Livro{
 
     @Override
     public String toString() {
-        return "LivroBraille [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", categoria=" + super.getCategoria() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
+        return "\nLivroBraille [cod=" + super.getCod() + ", titulo=" + super.getTitulo() + ", categoria=" + super.getCategoria() + ", autor=" + super.getAutor() + ", anoPub=" + super.getAnoPub()
             + ", exemDisp=" + super.getExemDisp() + ", material=" + material + "]";
     }
 }

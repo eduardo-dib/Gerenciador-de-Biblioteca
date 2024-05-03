@@ -23,22 +23,31 @@ public class ControladorLivro{
         filter(c -> c.getCod() == cod).
         findFirst().
         orElse(null);
-        if (livroEncontrado == null) {
-        throw new Exception("Livro com código " + cod + " não encontrado.");
+        if(livroEncontrado == null){
+            throw new Exception("Livro com o código: " + cod + " não foi encontrado" );
+        }
+        return livroEncontrado;
     }
-    return livroEncontrado;
+
+    private Livro buscarLivroAdd(String titulo){
+        return livros.stream()
+        .filter(c -> c.getTitulo() == titulo)
+        .findFirst().
+         orElse(null);
     }
 
     public Livro buscarLivroTitulo(String titulo) throws Exception{
         Livro livroEncontrado = livros.stream().
-        filter(n -> n.getTitulo() == titulo).
+        filter(c -> c.getTitulo() == titulo).
         findFirst().
         orElse(null);
-        if (livroEncontrado == null) {
-        throw new Exception("Livro com título " + titulo + " não encontrado.");
-    }
-    return livroEncontrado;
-    }
+        if(livroEncontrado == null){
+            throw new Exception("Livro com o título: " + titulo + " não foi encontrado" );
+        }
+        return livroEncontrado;
+    };
+
+   
 
     public List<Livro> buscarLivrosAutor(String autor) throws Exception {
         List<Livro> livrosEncontrados = livros.stream()
@@ -52,14 +61,27 @@ public class ControladorLivro{
         return livrosEncontrados;
     }
 
+    public List<Livro> buscarLivrosCategoria(String categoria) throws Exception {
+        List<Livro> livrosEncontrados = livros.stream()
+                .filter(livro -> livro.getCategoria().equals(categoria))
+                .collect(Collectors.toList());
+    
+        if (livrosEncontrados.isEmpty()) {
+            throw new Exception("Nenhum livro encontrado para o categoria: " + categoria);
+        }
+    
+        return livrosEncontrados;
+    }
+
     public void adicionarLivro(Livro livro) throws Exception{
-        if(buscarLivroTitulo(livro.getTitulo()) != null) {
-            throw new Exception("Livro com título " + livro.getTitulo() + " já está cadastrado.");
+        if (buscarLivroAdd(livro.getTitulo()) != null) {
+            throw new Exception("Livro com o nome " + livro.getTitulo() + " já está cadastrado.");
         }
         livros.add(livro);
         
     }
-
+        
+    
     @Override
     public String toString() {
         return "Livros=" + livros;
