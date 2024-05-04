@@ -1,39 +1,35 @@
 package Controllers;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.time.LocalDate;
 
+import Models.Usuario;
 import Models.Livro.*;
 
 public class Biblioteca {
-    private String nome;
-    private List<Livro> livros;
-    
-    public Biblioteca(String nome, List<Livro> livros) {
-        this.nome = nome;
-        this.livros = livros;
+    private ControladorLivro controladorLivro;
+    private ControladorUsuario controladorUsuario;
+
+    public Biblioteca(ControladorLivro controladorLivro, ControladorUsuario controladorUsuario) {
+        this.controladorLivro = controladorLivro;
+        this.controladorUsuario = controladorUsuario;
     }
 
-    public String getNome() {
-        return nome;
+    public void emprestarLivroParaUsuario(Usuario usuario, String titulo, LocalDate dataEmprestimo) throws Exception {
+        // Verificar se o usuário já tem livros emprestados
+        if (!usuario.getLivros().isEmpty()) throw new Exception("Usuário já tem um livro emprestado.");
+        Livro livro = controladorLivro.buscarLivroTitulo(titulo);
+        usuario.setDatasEmprestimo(LocalDate.now());
+        if (livro.getExemDisp() <= 0) throw new Exception("Não há exemplares disponíveis do livro desejado.");
+        controladorUsuario.adicionarLivroEmprestado(usuario, livro, dataEmprestimo);
+        livro.reduzirEstoque();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void devolverLivroDeUsuario(Usuario usuario, String titulo) throws Exception {
+        if (usuario.getLivros().isEmpty()) throw new Exception("Usuário não tem livros emprestados");
+        Livro livro = controladorLivro.buscarLivroTitulo(titulo);
+        controladorUsuario.devolverLivroEmprestado(usuario, livro);
+        livro.aumentarEstoque();
     }
 
-    public List<Livro> getLivros() {
-        return livros;
-    }
 
-    public void setLivros(List<Livro> livros) {
-        this.livros = livros;
-    }
 
-    public List<LivroFisico> emprestarLivros(List<LivroFisico> livros) {
-        return livros.stream()
-                .filter(livro -> livro.reduzirEstoque())
-                .map(livro -> new LivroFisico(livro.getTitulo(), livro.getCategoria(), livro.getAutor(), livro.getAnoPub(), livro.getExemDisp(), livro.getNumPag()))
-                .collect(Collectors.toList());
-    }
 }

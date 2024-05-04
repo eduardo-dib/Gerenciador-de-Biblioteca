@@ -1,14 +1,7 @@
 package Models;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
-
-import Controllers.ControladorLivro;
-import Controllers.ControladorUsuario;
-import Models.Livro.LivroBraille;
-import Models.Livro.LivroDigital;
-import Models.Livro.LivroFisico;
 import Models.Livro.Livro;
-import Models.*;
 
 public class Usuario implements Comparable <Usuario>{
 
@@ -18,6 +11,10 @@ public class Usuario implements Comparable <Usuario>{
     private String endereco;
     private String email;
     private List <Livro> livros;
+    private LocalDate datasEmprestimo;
+    private LocalDate datasDevolucaoPrevista;
+
+   
 
     public Usuario(String nome, String telefone, String endereco, String email, List<Livro> livros) {
         this.nome = nome;
@@ -66,17 +63,47 @@ public class Usuario implements Comparable <Usuario>{
     public void setLivros(List<Livro> livros) {
         this.livros = livros;
     }
+    
+    public LocalDate getDatasEmprestimo() {
+        return datasEmprestimo;
+    }
 
+    public void setDatasEmprestimo (LocalDate datasEmprestimo) {
+        this.datasEmprestimo = datasEmprestimo;
+    }
+
+    public LocalDate getDatasDevolucaoPrevista() {
+        return datasDevolucaoPrevista;
+    }
+
+    public void setDatasDevolucaoPrevista(LocalDate datasDevolucaoPrevista) {
+        this.datasDevolucaoPrevista = datasDevolucaoPrevista;
+    }
+
+    public void adicionarLivroEmprestado(Livro livro, LocalDate dataEmprestimo, LocalDate dataDevolucaoPrevista) {
+        this.datasEmprestimo = LocalDate.now();
+        this.datasDevolucaoPrevista = datasEmprestimo.plusDays(7);
+        livros.add(livro);
+    }
+
+    public void devolverLivroEmprestado(Livro livro){
+        livros.remove(livro);
+        this.setDatasDevolucaoPrevista(null);
+        this.setDatasEmprestimo(null);
+    }
     @Override
     public String toString() {
         return "Usuario [nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", email=" + email
-                + ", livros=" + livros + "]";
+                + ", livros=" + livros + ", Datas de Empréstimo=" + datasEmprestimo + ", Datas de Devolução=" + datasDevolucaoPrevista + "]";
+
     }
 
     @Override
     public int compareTo(Usuario o) {
         return nome.compareTo(o.getNome());
     }
+
+   
 
     
 
