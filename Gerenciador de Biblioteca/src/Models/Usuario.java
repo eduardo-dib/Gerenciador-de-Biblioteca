@@ -1,7 +1,14 @@
 package Models;
-import Models.Livro.*;
-
+import java.util.ArrayList;
 import java.util.List;
+
+import Controllers.ControladorLivro;
+import Controllers.ControladorUsuario;
+import Models.Livro.LivroBraille;
+import Models.Livro.LivroDigital;
+import Models.Livro.LivroFisico;
+import Models.Livro.Livro;
+import Models.*;
 
 public class Usuario implements Comparable <Usuario>{
 

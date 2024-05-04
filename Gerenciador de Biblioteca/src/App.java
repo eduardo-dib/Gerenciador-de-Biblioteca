@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import Controllers.Biblioteca;
 import Controllers.ControladorLivro;
 import Controllers.ControladorUsuario;
 import Models.Livro.LivroBraille;
@@ -17,13 +18,14 @@ import Models.*;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Gerenciamento de Biblioteca");
-
+        Biblioteca biblioteca = new Biblioteca("Sim", new ArrayList<>());
         ControladorLivro controladorLivro = new ControladorLivro();
         ControladorUsuario controladorUsuario = new ControladorUsuario();
+        controladorLivro.adicionarLivro(null);
         Usuario user1 = new Usuario("Sim", "Sim", "Sim", "Sim", new ArrayList<Livro>());
         Usuario user2 = new Usuario("Sim", "Sim", "Sim", "Sim", new ArrayList<Livro>());
         controladorUsuario.adicionarUsuario(user1);
-        System.out.println(user1);
+        System.out.println(user1);     
 
     }
 }
