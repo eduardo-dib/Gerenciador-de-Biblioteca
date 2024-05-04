@@ -18,15 +18,18 @@ public class App {
         ControladorUsuario controladorUsuario = new ControladorUsuario();
         Biblioteca biblioteca = new Biblioteca(controladorLivro, controladorUsuario);
         LivroBraille livroBraille = new LivroBraille("Teste", "Teste", "Teste", 2023, 2023, "Papel");
+        LivroFisico livroFisico = new LivroFisico("uhul", "Capoeira", "boitata", 2023, 7, 467);
         Usuario user1 = new Usuario("tata", "tata", "tata", "tata", new LinkedList<>());
+        Usuario user2 = new Usuario("Cefwild", "123", "Something missing", "foundme", new LinkedList<>());
         controladorLivro.adicionarLivro(livroBraille);
+        controladorLivro.adicionarLivro(livroFisico);
         controladorUsuario.adicionarUsuario(user1);
-        LocalDate dataEmprestimo = LocalDate.of(2050, 5, 15); // Exemplo: 15 de maio de 2024
-        LocalDate dataDevolucaoPrevista = LocalDate.of(2028, 5, 22); 
+        LocalDate dataEmprestimo = LocalDate.of(2023, 5, 15); // Exemplo: 15 de maio de 2024
         biblioteca.emprestarLivroParaUsuario(user1, "Teste", dataEmprestimo);
-        System.out.println(user1);
-        biblioteca.devolverLivroDeUsuario(user1, "Teste");
-        System.out.println(user1);
+        biblioteca.emprestarLivroParaUsuario(user2, "uhul", dataEmprestimo);
+        System.out.println(biblioteca.listarLivrosEmprestados());
+        System.out.println(biblioteca.listarUsuariosComAtraso());
+        
     
 
 

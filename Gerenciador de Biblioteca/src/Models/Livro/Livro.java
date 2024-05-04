@@ -7,12 +7,13 @@ public abstract class Livro implements Comparable <Livro>{
     protected int cod;
     protected String titulo;
     protected String categoria;
-    
-
     protected String autor;
     protected int anoPub;
     protected int exemDisp;
+    protected boolean emprestado;
     
+    
+
     public Livro(String titulo, String categoria, String autor, int anoPub, int exemDisp) {
         this.cod = proximoCodigo++;
         this.titulo = titulo;
@@ -71,6 +72,14 @@ public abstract class Livro implements Comparable <Livro>{
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public boolean isEmprestado() {
+        return emprestado;
+    }
+
+    public void setEmprestado(boolean emprestado) {
+        this.emprestado = emprestado;
     }
 
     @Override

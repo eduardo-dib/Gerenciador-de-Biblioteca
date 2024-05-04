@@ -27,9 +27,8 @@ public class ControladorUsuario {
 
     }
 
-    public void adicionarLivroEmprestado(Usuario usuario, Livro livro, LocalDate dataEmprestimo) {
-        LocalDate dataDevolucaoPrevista = usuario.getDatasEmprestimo().plusDays(7);
-        usuario.adicionarLivroEmprestado(livro, dataEmprestimo, dataDevolucaoPrevista);
+    public void adicionarLivroEmprestado(Usuario usuario, Livro livro, LocalDate dataEmprestimo) throws Exception{
+        usuario.adicionarLivroEmprestado(livro, dataEmprestimo);
     }
 
     public void devolverLivroEmprestado(Usuario usuario, Livro livro) {

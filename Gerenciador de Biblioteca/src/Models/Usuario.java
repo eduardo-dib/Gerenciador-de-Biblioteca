@@ -80,9 +80,9 @@ public class Usuario implements Comparable <Usuario>{
         this.datasDevolucaoPrevista = datasDevolucaoPrevista;
     }
 
-    public void adicionarLivroEmprestado(Livro livro, LocalDate dataEmprestimo, LocalDate dataDevolucaoPrevista) {
-        this.datasEmprestimo = LocalDate.now();
-        this.datasDevolucaoPrevista = datasEmprestimo.plusDays(7);
+    public void adicionarLivroEmprestado(Livro livro, LocalDate dataEmprestimo) throws Exception{
+        this.datasEmprestimo = dataEmprestimo;
+        this.datasDevolucaoPrevista = dataEmprestimo.plusDays(14); 
         livros.add(livro);
     }
 
@@ -90,6 +90,10 @@ public class Usuario implements Comparable <Usuario>{
         livros.remove(livro);
         this.setDatasDevolucaoPrevista(null);
         this.setDatasEmprestimo(null);
+    }
+
+    public List<Livro> listarLivrosEmprestados() {
+        return this.getLivros();
     }
     @Override
     public String toString() {
