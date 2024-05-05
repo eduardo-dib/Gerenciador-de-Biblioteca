@@ -24,11 +24,12 @@ public class App {
         controladorLivro.adicionarLivro(livroBraille);
         controladorLivro.adicionarLivro(livroFisico);
         controladorUsuario.adicionarUsuario(user1);
-        LocalDate dataEmprestimo = LocalDate.of(2023, 5, 15); // Exemplo: 15 de maio de 2024
+        controladorUsuario.adicionarUsuario(user2);
+        LocalDate dataEmprestimo = LocalDate.of(2023, 4, 15); // Exemplo: 15 de maio de 2024
         biblioteca.emprestarLivroParaUsuario(user1, "Teste", dataEmprestimo);
         biblioteca.emprestarLivroParaUsuario(user2, "uhul", dataEmprestimo);
-        System.out.println(biblioteca.listarLivrosEmprestados());
-        System.out.println(biblioteca.listarUsuariosComAtraso());
+        System.out.println(controladorUsuario.listarUsuariosComAtraso());
+
         
     
 

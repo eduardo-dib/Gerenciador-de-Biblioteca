@@ -61,20 +61,7 @@ public class Biblioteca {
         return new ArrayList<>(livrosEmprestados);
     }
 
-    public List<Usuario> listarUsuariosComAtraso() {
-        List<Usuario> usuariosComAtraso = new ArrayList<>();
-        LocalDate dataAtual = LocalDate.now();
-        
-        for (Usuario usuario : usuarios) {
-            for (Livro livro : usuario.getLivros()) {
-                if (livro.isEmprestado() && usuario.getDatasEmprestimo().isBefore(dataAtual.minusDays(7))) {
-                    usuariosComAtraso.add(usuario);
-                }
-            }
-        }
-        
-        return usuariosComAtraso;
-    }
+    
 }
     
 

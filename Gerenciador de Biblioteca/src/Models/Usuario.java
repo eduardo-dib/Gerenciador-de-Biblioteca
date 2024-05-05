@@ -95,6 +95,8 @@ public class Usuario implements Comparable <Usuario>{
     public List<Livro> listarLivrosEmprestados() {
         return this.getLivros();
     }
+
+    
     @Override
     public String toString() {
         return "Usuario [nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", email=" + email

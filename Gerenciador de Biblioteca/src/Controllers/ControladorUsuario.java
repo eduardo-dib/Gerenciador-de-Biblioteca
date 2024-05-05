@@ -35,6 +35,20 @@ public class ControladorUsuario {
         usuario.devolverLivroEmprestado(livro);
     }
 
+    public List<Usuario> listarUsuariosComAtraso() {
+        List<Usuario> usuariosComAtraso = new ArrayList<>();
+        LocalDate dataAtual = LocalDate.now();
+        
+        for (Usuario usuario : usuarios) {
+            LocalDate dataDevolucaoPrevista = usuario.getDatasDevolucaoPrevista();
+            if (dataDevolucaoPrevista.isBefore(dataAtual)) {
+                usuariosComAtraso.add(usuario);
+            }
+        }
+        
+        return usuariosComAtraso;
+    }
+
 
 
 
