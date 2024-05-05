@@ -89,7 +89,8 @@ public abstract class Livro implements Comparable <Livro>{
 
     @Override
     public int compareTo(Livro o) {
-        return titulo.compareTo(o.getTitulo());
+        return Integer.compare(this.exemDisp, o.exemDisp);
+    }
     }
 
-}
+

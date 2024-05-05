@@ -1,4 +1,5 @@
 package Controllers;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -77,7 +78,20 @@ public class ControladorLivro{
         livros.add(livro);
         
     }
-        
+
+    
+    public List<Livro> listarLivrosOrdenadosPorQuantidade() {
+        return livros.stream()
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
+    public List<Livro> listarTodosOsLivros() {
+    return livros.stream()
+            .sorted(Comparator.comparing(Livro::getCod))
+            .collect(Collectors.toList());
+}
+
     
     @Override
     public String toString() {

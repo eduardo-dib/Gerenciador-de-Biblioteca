@@ -2,7 +2,6 @@ package Controllers;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import Models.Usuario;
 import Models.Livro.*;
 
@@ -60,6 +59,7 @@ public class Biblioteca {
     public List<Livro> listarLivrosEmprestados() {
         return new ArrayList<>(livrosEmprestados);
     }
+
 
     
 }
