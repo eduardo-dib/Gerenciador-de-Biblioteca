@@ -13,7 +13,7 @@ public class ControladorUsuario {
         this.usuarios = new ArrayList<>();
     }
 
-    private Usuario buscarUsuarioAdd(String nome) {
+    public Usuario buscarUsuarioAdd(String nome) {
         return usuarios.stream()
                 .filter(n -> n.getNome() == nome)
                 .findFirst().orElse(null);
@@ -47,6 +47,11 @@ public class ControladorUsuario {
         }
         
         return usuariosComAtraso;
+    }
+
+    @Override
+    public String toString() {
+        return "[Usuários=" + usuarios + "]";
     }
 
 

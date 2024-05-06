@@ -38,7 +38,6 @@ public class Biblioteca {
 
 
     public void emprestarLivroParaUsuario(Usuario usuario, String titulo, LocalDate dataEmprestimo) throws Exception {
-        // Verificar se o usuário já tem livros emprestados
         if (!usuario.getLivros().isEmpty()) throw new Exception("Usuário já tem um livro emprestado.");
         Livro livro = controladorLivro.buscarLivroTitulo(titulo);
         if (livro.getExemDisp() <= 0) throw new Exception("Não há exemplares disponíveis do livro desejado.");
@@ -56,12 +55,6 @@ public class Biblioteca {
         livro.aumentarEstoque();
     }
 
-    public List<Livro> listarLivrosEmprestados() {
-        return new ArrayList<>(livrosEmprestados);
-    }
-
-
-    
 }
     
 

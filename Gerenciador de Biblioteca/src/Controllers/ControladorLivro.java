@@ -29,16 +29,16 @@ public class ControladorLivro{
 
     private Livro buscarLivroAdd(String titulo){
         return livros.stream()
-        .filter(c -> c.getTitulo() == titulo)
-        .findFirst().
-         orElse(null);
+        .filter(c -> c.getTitulo().trim().equalsIgnoreCase(titulo.trim()))
+        .findFirst()
+        .orElse(null);
     }
 
     public Livro buscarLivroTitulo(String titulo) throws Exception{
-        Livro livroEncontrado = livros.stream().
-        filter(c -> c.getTitulo() == titulo).
-        findFirst().
-        orElse(null);
+        Livro livroEncontrado = livros.stream()
+        .filter(c -> c.getTitulo().trim().equalsIgnoreCase(titulo.trim()))
+        .findFirst()
+        .orElse(null);
         if(livroEncontrado == null){
             throw new Exception("Livro com o título: " + titulo + " não foi encontrado" );
         }
@@ -49,7 +49,7 @@ public class ControladorLivro{
 
     public List<Livro> buscarLivrosAutor(String autor) throws Exception {
         List<Livro> livrosEncontrados = livros.stream()
-                .filter(livro -> livro.getAutor().equals(autor))
+                .filter(livro -> livro.getAutor().trim().equalsIgnoreCase(autor.trim()))
                 .collect(Collectors.toList());
     
         if (livrosEncontrados.isEmpty()) {
@@ -61,7 +61,7 @@ public class ControladorLivro{
 
     public List<Livro> buscarLivrosCategoria(String categoria) throws Exception {
         List<Livro> livrosEncontrados = livros.stream()
-                .filter(livro -> livro.getCategoria().equals(categoria))
+                .filter(livro -> livro.getCategoria().trim().equalsIgnoreCase(categoria.trim()))
                 .collect(Collectors.toList());
     
         if (livrosEncontrados.isEmpty()) {
@@ -79,12 +79,13 @@ public class ControladorLivro{
         
     }
 
-    
-    public List<Livro> listarLivrosOrdenadosPorQuantidade() {
+    public List<Livro> listarLivrosPopularidade() {
         return livros.stream()
                 .sorted()
                 .collect(Collectors.toList());
     }
+
+    
 
     public List<Livro> listarTodosOsLivros() {
     return livros.stream()
@@ -97,5 +98,6 @@ public class ControladorLivro{
     public String toString() {
         return "Livros=" + livros;
     }
+    }
 
-}
+

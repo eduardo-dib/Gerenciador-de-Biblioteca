@@ -1,5 +1,6 @@
 package Models;
 import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.List;
 import Models.Livro.Livro;
 
@@ -16,12 +17,12 @@ public class Usuario implements Comparable <Usuario>{
 
    
 
-    public Usuario(String nome, String telefone, String endereco, String email, List<Livro> livros) {
+    public Usuario(String nome, String telefone, String endereco, String email) {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
         this.email = email;
-        this.livros = livros;
+        this.livros = new LinkedList<>();
     }
 
     public String getNome() {
@@ -99,7 +100,7 @@ public class Usuario implements Comparable <Usuario>{
     
     @Override
     public String toString() {
-        return "Usuario [nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", email=" + email
+        return "\nUsuario [nome=" + nome + ", telefone=" + telefone + ", endereco=" + endereco + ", email=" + email
                 + ", livros=" + livros + ", Datas de Empréstimo=" + datasEmprestimo + ", Datas de Devolução=" + datasDevolucaoPrevista + "]";
 
     }
