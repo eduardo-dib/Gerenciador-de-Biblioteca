@@ -14,9 +14,12 @@ public class ControladorUsuario {
     }
 
     public Usuario buscarUsuarioAdd(String nome) {
-        return usuarios.stream()
-                .filter(n -> n.getNome() == nome)
-                .findFirst().orElse(null);
+        for (Usuario usuario : usuarios) {
+            if (usuario.getNome().equals(nome)) {
+                return usuario; 
+            }
+        }
+        return null; 
     }
 
     public void adicionarUsuario(Usuario usuario) throws Exception {
@@ -41,7 +44,7 @@ public class ControladorUsuario {
         
         for (Usuario usuario : usuarios) {
             LocalDate dataDevolucaoPrevista = usuario.getDatasDevolucaoPrevista();
-            if (dataDevolucaoPrevista.isBefore(dataAtual)) {
+            if (dataDevolucaoPrevista != null && dataDevolucaoPrevista.isBefore(dataAtual)) {
                 usuariosComAtraso.add(usuario);
             }
         }

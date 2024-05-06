@@ -27,11 +27,12 @@ public class ControladorLivro{
         return livroEncontrado;
     }
 
-    private Livro buscarLivroAdd(String titulo){
+    private Livro buscarLivroAdd(String titulo) throws Exception{
         return livros.stream()
         .filter(c -> c.getTitulo().trim().equalsIgnoreCase(titulo.trim()))
         .findFirst()
         .orElse(null);
+        
     }
 
     public Livro buscarLivroTitulo(String titulo) throws Exception{
@@ -49,7 +50,7 @@ public class ControladorLivro{
 
     public List<Livro> buscarLivrosAutor(String autor) throws Exception {
         List<Livro> livrosEncontrados = livros.stream()
-                .filter(livro -> livro.getAutor().trim().equalsIgnoreCase(autor.trim()))
+                .filter(livro -> livro.getAutor().equalsIgnoreCase(autor.trim()))
                 .collect(Collectors.toList());
     
         if (livrosEncontrados.isEmpty()) {
