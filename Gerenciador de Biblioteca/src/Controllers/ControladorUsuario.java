@@ -21,7 +21,7 @@ public class ControladorUsuario {
         }
         return null; 
     }
-
+    //CADASTRO USUÁRIO
     public void adicionarUsuario(Usuario usuario) throws Exception {
         if (buscarUsuarioAdd(usuario.getNome()) != null) {
             throw new Exception("Usuário com o nome " + usuario.getNome() + " já está cadastrado.");
@@ -37,7 +37,7 @@ public class ControladorUsuario {
     public void devolverLivroEmprestado(Usuario usuario, Livro livro) {
         usuario.devolverLivroEmprestado(livro);
     }
-
+    //RELATÓRIO
     public List<Usuario> listarUsuariosComAtraso() {
         List<Usuario> usuariosComAtraso = new ArrayList<>();
         LocalDate dataAtual = LocalDate.now();

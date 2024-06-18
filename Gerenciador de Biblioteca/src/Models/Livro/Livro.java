@@ -86,7 +86,7 @@ public abstract class Livro implements Comparable <Livro>{
     public String toString() {
         return "Livro [titulo=" + titulo + ", categoria=" + categoria + ", autor=" + autor + ", anoPub=" + anoPub + ", exemDisp=" + exemDisp + ",cod=" + cod +"]";
     }
-
+    //INTERFACE COMPARABLE QUE AJUDA A LISTAR OS LIVROS MAIS POPULARES
     @Override
     public int compareTo(Livro o) {
         return Integer.compare(this.exemDisp, o.exemDisp);

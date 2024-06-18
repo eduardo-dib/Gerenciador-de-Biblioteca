@@ -15,7 +15,7 @@ public class ControladorLivro{
         this.livros = new LinkedList<>();
     }
 
-
+    //MÉTODOS PARA BUSCA DE LIVROS
     public Livro buscarLivroCod(int cod) throws Exception{
         Livro livroEncontrado = livros.stream().
         filter(c -> c.getCod() == cod).
@@ -54,7 +54,7 @@ public class ControladorLivro{
                 .collect(Collectors.toList());
     
         if (livrosEncontrados.isEmpty()) {
-            throw new Exception("Nenhum livro encontrado para o autor: " + autor);
+            throw new Exception("Nenhum livro encontrado para o autor(a): " + autor);
         }
     
         return livrosEncontrados;
@@ -66,12 +66,12 @@ public class ControladorLivro{
                 .collect(Collectors.toList());
     
         if (livrosEncontrados.isEmpty()) {
-            throw new Exception("Nenhum livro encontrado para o categoria: " + categoria);
+            throw new Exception("Nenhum livro encontrado para a categoria: " + categoria);
         }
     
         return livrosEncontrados;
     }
-
+    //CADASTRO DE LIVROS
     public void adicionarLivro(Livro livro) throws Exception{
         if (buscarLivroAdd(livro.getTitulo()) != null) {
             throw new Exception("Livro com o nome " + livro.getTitulo() + " já está cadastrado.");
@@ -79,7 +79,7 @@ public class ControladorLivro{
         livros.add(livro);
         
     }
-
+    //RELATÓRIOS
     public List<Livro> listarLivrosPopularidade() {
         return livros.stream()
                 .sorted()

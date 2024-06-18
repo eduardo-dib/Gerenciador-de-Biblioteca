@@ -36,7 +36,7 @@ public class Biblioteca {
         this.livrosEmprestados = livrosEmprestados;
     }
 
-
+    //EMPRÉSTIMO DE LIVROS
     public void emprestarLivroParaUsuario(Usuario usuario, String titulo, LocalDate dataEmprestimo) throws Exception {
         if (!usuario.getLivros().isEmpty()) throw new Exception("Usuário já tem um livro emprestado.");
         Livro livro = controladorLivro.buscarLivroTitulo(titulo);
@@ -46,7 +46,7 @@ public class Biblioteca {
         livro.setEmprestado(true);
         livro.reduzirEstoque();
     }
-
+    //DEVOLUÇÃO DE LIVROS
     public void devolverLivroDeUsuario(Usuario usuario, String titulo) throws Exception {
         if (usuario.getLivros().isEmpty()) throw new Exception("Usuário não tem livros emprestados");
         Livro livro = controladorLivro.buscarLivroTitulo(titulo);
